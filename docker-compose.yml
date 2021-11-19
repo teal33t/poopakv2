@@ -2,6 +2,7 @@ version: '3'
 
 
 services:
+
   multitor :
     build: ./multitor
     # entrypoint: ./multitor/startup.sh
@@ -9,4 +10,17 @@ services:
     environment:
       - "TOR_INSTANCES=20"
     
-    
+  jupyter-notebook:
+      image: jupyter/datascience-notebook
+      user: root
+      env_file: jupyter-notebook/.env
+      volumes:
+        - ./jupyter-notebook:/home/jovyan/work
+        - ./jupyter-notebook/datasets:/home/jovyan/work/datasets
+        - ./jupyter-notebook/datasets/modules:/home/jovyan/work/modules
+        - ./jupyter-notebook:/etc/ssl/notebook
+      ports:
+        - 8888:8888
+      container_name: jupyter_notebook
+      command: "start-notebook.sh \
+        --NotebookApp.password=${ACCESS_TOKEN}"
