@@ -8,6 +8,3 @@ We're looking into how anonymous, decentralized networks aided free speech and h
 
 
 
-
-
-![Diagram of Poopak Version 2](https://github.com/teal33t/poopakv2/raw/master/poopakv2.jpg "Diagram of Poopak Version 2")
